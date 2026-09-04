@@ -97,7 +97,7 @@ export async function SiteFooter() {
           <h2 className="mb-4 text-[15px] font-bold tracking-wide text-white">
             {t("location")}
           </h2>
-          <div className="overflow-hidden rounded-md border border-white/20">
+          <div className="overflow-hidden rounded-[12px] border border-white/20">
             <iframe
               src={site.mapEmbedUrl}
               title={`${site.name} — ${t("location")}`}

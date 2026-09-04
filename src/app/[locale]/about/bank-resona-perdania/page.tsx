@@ -48,7 +48,7 @@ export default async function Page({
         href={site.external.bankResonaPerdania}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-8 inline-flex items-center gap-2 rounded-md border border-ink-300 bg-white px-5 py-3 text-[15px] font-medium text-ink-700 transition-colors hover:border-brand-600 hover:text-brand-600"
+        className="mt-8 inline-flex items-center gap-2 rounded-[12px] border border-ink-200 bg-white px-5 py-3 text-[15px] font-medium text-ink-700 transition-colors hover:border-brand-600 hover:text-brand-600"
       >
         <Globe className="h-4 w-4" aria-hidden />
         {t("clickHere")}

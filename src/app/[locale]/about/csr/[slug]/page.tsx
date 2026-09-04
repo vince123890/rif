@@ -64,7 +64,7 @@ export default async function Page({
         {formatDate(item.date, locale)}
       </time>
 
-      <div className="relative mt-6 aspect-16/9 overflow-hidden rounded-lg bg-ink-100">
+      <div className="relative mt-6 aspect-16/9 overflow-hidden rounded-[16px] bg-ink-100">
         <Image
           src={item.image}
           alt={pick(item.title, locale)}

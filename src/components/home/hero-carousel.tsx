@@ -12,7 +12,13 @@ import { cn } from "@/lib/utils";
 
 const INTERVAL = 7000;
 
-/** FR-HM-01 — hero banner slider, CMS-managed. */
+/**
+ * FR-HM-01 — hero banner slider.
+ *
+ * Layout from the fig: a full-bleed 1440×800 photo, headline at 84px Bold
+ * with the second line in accent orange, and a small italic tagline
+ * ("• Our Story of Growth and Excellence •") beneath.
+ */
 export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
   const t = useTranslations("home");
   const locale = useLocale();
@@ -46,9 +52,8 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
-      className="relative isolate overflow-hidden bg-brand-800"
+      className="relative isolate overflow-hidden bg-ink-900"
     >
-      {/* Slides */}
       {slides.map((s, i) => (
         <div
           key={s.id}
@@ -72,44 +77,55 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
         </div>
       ))}
 
-      {/* Legibility scrim */}
+      {/*
+       * Legibility scrim. The fig sets dark type on a bright photo, so the
+       * wash is strongest behind the headline column and clears to the right
+       * to let the image show through.
+       */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-brand-900/90 via-brand-800/70 to-brand-700/30"
+        className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/70 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-t from-white/70 via-transparent to-transparent"
       />
 
-      <div className="container-rif relative flex min-h-[520px] items-center py-20 md:min-h-[620px] lg:min-h-[660px]">
+      <div className="container-rif relative flex min-h-[560px] flex-col justify-center py-24 md:min-h-[700px] lg:min-h-[800px]">
         <div key={slide.id} className="max-w-3xl animate-fade-up">
-          <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent-300">
+          <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-brand-600">
             {pick(slide.kicker, locale)}
           </p>
 
-          <h1 className="mt-4 text-[38px] font-light leading-[1.1] text-white md:text-[56px] lg:text-[64px]">
+          {/* fig: 84px Bold, second line in #F58220 */}
+          <h1 className="mt-6 text-[42px] font-bold leading-[1.05] tracking-[-0.02em] text-ink-900 md:text-[64px] lg:text-[84px]">
             {pick(slide.title, locale)}
             {slide.titleAccent ? (
               <>
                 <br />
-                <span className="font-normal">{pick(slide.titleAccent, locale)}</span>
+                <span className="text-accent-400">
+                  {pick(slide.titleAccent, locale)}
+                </span>
               </>
             ) : null}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-[16px] leading-relaxed text-white/85 md:text-[18px]">
-            {pick(slide.lead, locale)}
+          {/* fig: 20px italic, bullet-wrapped tagline */}
+          <p className="mt-6 text-[16px] italic text-ink-700 md:text-[20px]">
+            • {pick(slide.lead, locale)} •
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-4">
-            <ButtonLink href="/products" variant="accent" size="lg">
+          <div className="mt-10 flex flex-wrap gap-4">
+            <ButtonLink href="/products" size="lg">
               {t("heroCtaProducts")}
             </ButtonLink>
-            <ButtonLink href="/contact" variant="onDark" size="lg">
+            <ButtonLink href="/contact" variant="accent" size="lg">
               {t("heroCtaContact")}
             </ButtonLink>
           </div>
         </div>
       </div>
 
-      {/* Controls */}
       {slides.length > 1 && (
         <div className="container-rif relative pb-10">
           <div className="flex items-center gap-4">
@@ -118,7 +134,7 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
                 type="button"
                 onClick={() => go(index - 1)}
                 aria-label="Previous slide"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/35 text-white transition-colors hover:bg-white hover:text-brand-700"
+                className="grid h-12 w-12 place-items-center rounded-full border border-ink-200 bg-white/70 text-ink-700 backdrop-blur transition-colors hover:bg-brand-600 hover:text-white"
               >
                 <ChevronLeft className="h-5 w-5" aria-hidden />
               </button>
@@ -126,7 +142,7 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
                 type="button"
                 onClick={() => go(index + 1)}
                 aria-label="Next slide"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/35 text-white transition-colors hover:bg-white hover:text-brand-700"
+                className="grid h-12 w-12 place-items-center rounded-full border border-ink-200 bg-white/70 text-ink-700 backdrop-blur transition-colors hover:bg-brand-600 hover:text-white"
               >
                 <ChevronRight className="h-5 w-5" aria-hidden />
               </button>
@@ -142,7 +158,9 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
                   aria-current={i === index}
                   className={cn(
                     "h-1.5 rounded-full transition-all duration-300",
-                    i === index ? "w-10 bg-accent-400" : "w-5 bg-white/40 hover:bg-white/70",
+                    i === index
+                      ? "w-10 bg-accent-400"
+                      : "w-5 bg-ink-400/60 hover:bg-ink-500",
                   )}
                 />
               ))}

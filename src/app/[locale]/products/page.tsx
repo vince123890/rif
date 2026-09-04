@@ -37,7 +37,7 @@ export default async function Page({
       icon={<HandshakeIcon />}
       wide
     >
-      <p className="mb-8 text-[16px] text-ink-600">
+      <p className="mb-8 text-[16px] text-ink-700">
         PT Resona Indonesia Finance{" "}
         {locale === "id"
           ? "menyediakan Fasilitas Pembiayaan berupa:"

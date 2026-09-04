@@ -33,7 +33,7 @@ export async function NewsSidebar({
   const rowCls = (active: boolean) =>
     cn(
       "flex items-center justify-between gap-3 py-2 text-[15px] transition-colors",
-      active ? "font-bold text-brand-600" : "text-ink-600 hover:text-brand-600",
+      active ? "font-bold text-brand-600" : "text-ink-700 hover:text-brand-600",
     );
 
   return (
@@ -44,7 +44,7 @@ export async function NewsSidebar({
           <h2 className="text-[19px] font-normal text-ink-900">
             {t("categories")}
           </h2>
-          <ul className="mt-3 divide-y divide-ink-100 border-t border-ink-100">
+          <ul className="mt-3 divide-y divide-ink-200 border-t border-ink-200">
             {facets.categories.map((c) => (
               <li key={c.key}>
                 <Link
@@ -68,7 +68,7 @@ export async function NewsSidebar({
       {facets.years.length > 0 && (
         <section>
           <h2 className="text-[19px] font-normal text-ink-900">{t("year")}</h2>
-          <ul className="mt-3 divide-y divide-ink-100 border-t border-ink-100">
+          <ul className="mt-3 divide-y divide-ink-200 border-t border-ink-200">
             {facets.years.map((y) => (
               <li key={y.year}>
                 <Link
@@ -132,7 +132,7 @@ export async function NewsSidebar({
             {facets.tags.map((tag) => (
               <li
                 key={tag}
-                className="rounded border border-ink-200 px-3 py-1.5 text-[13px] text-ink-600"
+                className="rounded border border-ink-200 px-3 py-1.5 text-[13px] text-ink-700"
               >
                 {tag}
               </li>

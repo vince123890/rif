@@ -49,7 +49,7 @@ export default async function Page({
         {awards.map((a) => (
           <article
             key={a.id}
-            className="group overflow-hidden rounded-lg border border-ink-200 bg-white transition-shadow hover:shadow-md"
+            className="group overflow-hidden rounded-[16px] border border-ink-200 bg-white transition-shadow hover:shadow-md"
           >
             <div className="relative aspect-square bg-ink-50">
               <Image
@@ -60,14 +60,14 @@ export default async function Page({
                 className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div className="border-t border-ink-100 p-6">
+            <div className="border-t border-ink-200 p-6">
               <p className="text-[13px] font-bold uppercase tracking-wide text-brand-400">
                 {a.year}
               </p>
               <h2 className="mt-1.5 text-[18px] font-bold leading-snug text-ink-900">
                 {pick(a.title, locale)}
               </h2>
-              <p className="mt-2.5 text-[14px] leading-relaxed text-ink-600">
+              <p className="mt-2.5 text-[14px] leading-relaxed text-ink-700">
                 {pick(a.description, locale)}
               </p>
             </div>

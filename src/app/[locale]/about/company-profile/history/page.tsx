@@ -3,44 +3,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildMetadata } from "@/lib/seo";
 import { ContentPage } from "@/components/layout/content-page";
 import { CompassIcon } from "@/components/ui/page-icons";
+import { milestones } from "@/lib/content/milestones";
 
 const ROUTE = "/about/company-profile/history";
 
-/** FR-AB-04 — "Short Journey" milestones. Sourced from the CMS once live. */
-const milestones = [
-  {
-    year: "1984",
-    month: { id: "Agustus", en: "August" },
-    body: {
-      id: "Pendirian Perusahaan dengan nama PT Daiwa Lippo Leasing Corporation.",
-      en: "The Company is established as PT Daiwa Lippo Leasing Corporation.",
-    },
-  },
-  {
-    year: "1984",
-    month: { id: "Desember", en: "December" },
-    body: {
-      id: "Perusahaan memperoleh izin usaha dalam bidang Leasing berdasarkan Keputusan Menteri Keuangan Republik Indonesia No. KEP-145/KM.11/1984.",
-      en: "The Company obtains a leasing business licence under Decree of the Minister of Finance No. KEP-145/KM.11/1984.",
-    },
-  },
-  {
-    year: "1994",
-    month: { id: "Agustus", en: "August" },
-    body: {
-      id: "Perusahaan berubah nama menjadi PT Daiwa Lippo Finance.",
-      en: "The Company is renamed PT Daiwa Lippo Finance.",
-    },
-  },
-  {
-    year: "2003",
-    month: { id: "Februari", en: "February" },
-    body: {
-      id: "Perusahaan resmi berganti nama menjadi PT Resona Indonesia Finance dan bergabung dalam kelompok Resona Grup.",
-      en: "The Company is officially renamed PT Resona Indonesia Finance and joins the Resona Group.",
-    },
-  },
-];
 
 export async function generateMetadata({
   params,
@@ -88,12 +54,12 @@ export default async function Page({
               aria-hidden
               className="absolute left-0 top-2 h-4 w-4 rounded-full border-[3px] border-white bg-brand-600 ring-2 ring-brand-200 md:left-24"
             />
-            <div className="rounded-lg border border-ink-200 bg-white p-6 transition-shadow hover:shadow-md">
+            <div className="rounded-[16px] border border-ink-200 bg-white p-6 transition-shadow hover:shadow-md">
               <p className="text-[13px] font-bold uppercase tracking-wide text-brand-400">
                 <span className="md:hidden">{m.year} · </span>
                 {m.month[key]}
               </p>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink-600">
+              <p className="mt-2 text-[15px] leading-relaxed text-ink-700">
                 {m.body[key]}
               </p>
             </div>

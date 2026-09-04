@@ -58,7 +58,7 @@ export default async function Page({
           <h2 className="text-[30px] font-normal text-brand-600 md:text-[36px]">
             {t("title")}
           </h2>
-          <p className="mt-3 text-[16px] text-ink-600">{t("lead")}</p>
+          <p className="mt-3 text-[16px] text-ink-700">{t("lead")}</p>
 
           <dl className="mt-8 space-y-6">
             <div className="flex gap-4">
@@ -97,7 +97,7 @@ export default async function Page({
           <div className="mt-10 space-y-6 border-t border-ink-200 pt-8">
             {links.map((l) => (
               <div key={l.label}>
-                <p className="text-[15px] leading-relaxed text-ink-600">
+                <p className="text-[15px] leading-relaxed text-ink-700">
                   {l.intro}
                 </p>
                 <a
@@ -117,7 +117,7 @@ export default async function Page({
 
         {/* FR-CT-02 — Google Maps embed */}
         <div>
-          <div className="overflow-hidden rounded-lg border border-ink-200">
+          <div className="overflow-hidden rounded-[16px] border border-ink-200">
             <iframe
               src={site.mapEmbedUrl}
               title={`${site.name} — ${locale === "id" ? "Lokasi" : "Location"}`}

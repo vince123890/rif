@@ -136,7 +136,7 @@ export function MainNav({ items }: { items: NavItem[] }) {
           <LanguageSwitcher />
           <button
             type="button"
-            className="rounded-md p-2 text-white transition-colors hover:bg-white/10 lg:hidden"
+            className="rounded-[12px] p-2 text-white transition-colors hover:bg-white/10 lg:hidden"
             aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
@@ -190,7 +190,7 @@ function SubMenuItem({ item }: { item: NavItem }) {
       </button>
 
       {open && (
-        <div className="absolute left-full top-0 z-50 min-w-[270px] rounded-md border-t-2 border-accent-400 bg-white py-2 shadow-xl">
+        <div className="absolute left-full top-0 z-50 min-w-[270px] rounded-[12px] border-t-2 border-accent-400 bg-white py-2 shadow-xl">
           <ul>
             {item.children!.map((g) => (
               <li key={g.key}>

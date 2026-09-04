@@ -23,7 +23,7 @@ export function ProductTabs({ products }: { products: Product[] }) {
   const product = products[active];
 
   return (
-    <div className="overflow-hidden rounded-lg border border-brand-200 bg-white shadow-sm">
+    <div className="overflow-hidden rounded-[16px] border border-brand-200 bg-white shadow-sm">
       {/* Tab list */}
       <div role="tablist" aria-label="Products" className="flex flex-wrap gap-1 border-b border-ink-200 px-4 pt-4 sm:px-8">
         {products.map((p, i) => (
@@ -53,7 +53,7 @@ export function ProductTabs({ products }: { products: Product[] }) {
         aria-labelledby={`tab-${product.slug}`}
         className="grid gap-8 p-6 sm:p-8 lg:grid-cols-2 lg:gap-12"
       >
-        <div className="relative aspect-4/3 overflow-hidden rounded-md bg-ink-100">
+        <div className="relative aspect-4/3 overflow-hidden rounded-[12px] bg-ink-100">
           <Image
             src={product.image}
             alt={pick(product.name, locale)}
@@ -70,7 +70,7 @@ export function ProductTabs({ products }: { products: Product[] }) {
 
           <ul className="mt-6 space-y-3 border-t border-ink-200 pt-6">
             {pickList(product.highlights, locale).map((item) => (
-              <li key={item} className="flex items-start gap-3 text-[15px] text-ink-600">
+              <li key={item} className="flex items-start gap-3 text-[15px] text-ink-700">
                 <Check className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" aria-hidden />
                 {item}
               </li>

@@ -11,7 +11,7 @@ export async function SiteHeader() {
   const t = await getTranslations("nav");
   const nav = visibleNavigation();
 
-  // Resolve i18n labels on the server so the client nav stays a thin shell.
+  // Labels resolve on the server so the client nav stays a thin shell.
   const items = nav.map((n) => ({
     key: n.key,
     label: t(n.key),
@@ -30,13 +30,13 @@ export async function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Utility bar — address + phone, as on the existing site */}
-      <div className="hidden border-b border-ink-100 bg-white lg:block">
-        <div className="container-rif flex h-14 items-center justify-between">
+      {/* Utility bar — brand lockup left, contact right */}
+      <div className="hidden border-b border-ink-200 bg-white lg:block">
+        <div className="container-rif flex h-[72px] items-center justify-between">
           <Link href="/" aria-label={site.name}>
             <Logo />
           </Link>
-          <div className="flex items-center gap-7 text-[13px] text-ink-600">
+          <div className="flex items-center gap-8 text-[13px] text-ink-500">
             <span className="inline-flex items-center gap-2">
               <MapPin className="h-4 w-4 text-brand-600" aria-hidden />
               {site.address.short}

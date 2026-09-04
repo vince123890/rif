@@ -54,7 +54,7 @@ export default async function Page({
               ))}
             </div>
           ) : (
-            <p className="rounded-md border border-dashed border-ink-300 bg-ink-50 px-6 py-16 text-center text-ink-500">
+            <p className="rounded-[12px] border border-dashed border-ink-200 bg-ink-50 px-6 py-16 text-center text-ink-500">
               {t("empty")}
             </p>
           )}

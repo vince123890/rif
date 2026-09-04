@@ -43,7 +43,7 @@ export default async function Page({
       wide
       crumbs={[{ label: tNav("about"), href: "/about/management-message" }]}
     >
-      <p className="mb-10 max-w-3xl text-[16px] leading-relaxed text-ink-600">
+      <p className="mb-10 max-w-3xl text-[16px] leading-relaxed text-ink-700">
         {locale === "id"
           ? "PT Resona Indonesia Finance berkomitmen memberikan kontribusi nyata bagi masyarakat dan lingkungan melalui berbagai program tanggung jawab sosial perusahaan."
           : "PT Resona Indonesia Finance is committed to making a tangible contribution to society and the environment through a range of corporate social responsibility programmes."}
@@ -53,7 +53,7 @@ export default async function Page({
         {activities.map((c) => (
           <article
             key={c.slug}
-            className="group overflow-hidden rounded-lg border border-ink-200 bg-white transition-shadow hover:shadow-md"
+            className="group overflow-hidden rounded-[16px] border border-ink-200 bg-white transition-shadow hover:shadow-md"
           >
             <Link href={`/about/csr/${c.slug}`} tabIndex={-1} aria-hidden>
               <div className="relative aspect-16/10 bg-ink-100">
@@ -81,7 +81,7 @@ export default async function Page({
                   {pick(c.title, locale)}
                 </Link>
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-ink-600">
+              <p className="mt-3 text-[15px] leading-relaxed text-ink-700">
                 {pick(c.summary, locale)}
               </p>
               <Link

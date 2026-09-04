@@ -93,7 +93,7 @@ export function ZoomableImage({
   const canvas = (
     <div
       className={cn(
-        "relative overflow-hidden rounded-lg border border-ink-200 bg-white",
+        "relative overflow-hidden rounded-[16px] border border-ink-200 bg-white",
         scale > 1 ? "cursor-grab active:cursor-grabbing" : "cursor-default",
       )}
       onPointerDown={onPointerDown}
@@ -169,7 +169,7 @@ function ControlButton({
       aria-label={label}
       title={label}
       disabled={disabled}
-      className="grid h-9 w-9 place-items-center rounded-md border border-ink-300 bg-white text-ink-700 transition-colors hover:border-brand-600 hover:text-brand-600 disabled:opacity-40 disabled:hover:border-ink-300 disabled:hover:text-ink-700"
+      className="grid h-9 w-9 place-items-center rounded-[12px] border border-ink-200 bg-white text-ink-700 transition-colors hover:border-brand-600 hover:text-brand-600 disabled:opacity-40 disabled:hover:border-ink-200 disabled:hover:text-ink-700"
     >
       {children}
     </button>

@@ -49,7 +49,7 @@ export default async function Page({
 
       {vacancies.length === 0 ? (
         /* FR-CR-02 — "Not Available" state */
-        <div className="mt-10 rounded-lg border border-dashed border-ink-300 bg-ink-50 px-6 py-16 text-center">
+        <div className="mt-10 rounded-[16px] border border-dashed border-ink-200 bg-ink-50 px-6 py-16 text-center">
           <Briefcase className="mx-auto h-10 w-10 text-ink-300" aria-hidden />
           <p className="mt-4 text-[22px] font-normal text-ink-800">
             {t("notAvailable")}
@@ -68,7 +68,7 @@ export default async function Page({
           {vacancies.map((v) => (
             <li
               key={v.id}
-              className="rounded-lg border border-ink-200 bg-white p-7 transition-shadow hover:shadow-md"
+              className="rounded-[16px] border border-ink-200 bg-white p-7 transition-shadow hover:shadow-md"
             >
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
@@ -98,7 +98,7 @@ export default async function Page({
                 </ButtonLink>
               </div>
 
-              <div className="mt-6 border-t border-ink-100 pt-6">
+              <div className="mt-6 border-t border-ink-200 pt-6">
                 <h4 className="text-[16px] font-bold text-ink-900">
                   {t("description")}
                 </h4>
@@ -112,7 +112,7 @@ export default async function Page({
                     <h4 className="mt-6 text-[16px] font-bold text-ink-900">
                       {t("requirements")}
                     </h4>
-                    <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] text-ink-600 marker:text-brand-400">
+                    <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] text-ink-700 marker:text-brand-400">
                       {pickList(v.requirements, locale).map((r) => (
                         <li key={r}>{r}</li>
                       ))}

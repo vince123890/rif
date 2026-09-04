@@ -50,7 +50,7 @@ export function LanguageSwitcher() {
         aria-haspopup="listbox"
         disabled={pending}
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1.5 rounded-md px-3 py-2 text-[14px] font-medium text-white transition-colors hover:bg-white/10 disabled:opacity-60"
+        className="flex items-center gap-1.5 rounded-[12px] px-3 py-2 text-[14px] font-medium text-white transition-colors hover:bg-white/10 disabled:opacity-60"
       >
         <Globe className="h-4 w-4" aria-hidden />
         {LABELS[locale] ?? locale.toUpperCase()}
@@ -63,7 +63,7 @@ export function LanguageSwitcher() {
       {open && (
         <ul
           role="listbox"
-          className="absolute right-0 top-full z-50 mt-1 min-w-[130px] overflow-hidden rounded-md border border-ink-200 bg-white py-1 shadow-xl"
+          className="absolute right-0 top-full z-50 mt-1 min-w-[130px] overflow-hidden rounded-[12px] border border-ink-200 bg-white py-1 shadow-xl"
         >
           {routing.locales.map((l) => (
             <li key={l}>

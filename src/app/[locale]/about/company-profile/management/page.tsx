@@ -70,7 +70,7 @@ export default async function Page({
               <div className="mt-6 grid gap-6 border-t border-brand-200 pt-8 sm:grid-cols-2 lg:grid-cols-4">
                 {members.map((p) => (
                   <article key={p.id} className="text-center sm:text-left">
-                    <div className="relative mx-auto aspect-square w-full max-w-[220px] overflow-hidden rounded-lg bg-ink-100 sm:mx-0">
+                    <div className="relative mx-auto aspect-square w-full max-w-[220px] overflow-hidden rounded-[16px] bg-ink-100 sm:mx-0">
                       {p.photo ? (
                         <Image
                           src={p.photo}

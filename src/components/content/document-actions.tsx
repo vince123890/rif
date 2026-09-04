@@ -15,7 +15,7 @@ export async function DocumentActions({
   const t = await getTranslations("common");
 
   const cls =
-    "inline-flex items-center gap-2 rounded-md border border-ink-300 bg-white px-4 py-2.5 " +
+    "inline-flex items-center gap-2 rounded-[12px] border border-ink-200 bg-white px-4 py-2.5 " +
     "text-[14px] font-medium text-ink-700 transition-colors hover:border-brand-600 hover:text-brand-600";
 
   return (

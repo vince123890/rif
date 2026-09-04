@@ -23,7 +23,7 @@ export async function NextPageLink({ current }: { current: string }) {
   }
 
   return (
-    <section className="border-t border-ink-100 bg-white">
+    <section className="border-t border-ink-200 bg-white">
       <div className="container-rif py-12 text-center">
         <p className="text-[14px] uppercase tracking-wide text-ink-500">
           {t("nextPage")}

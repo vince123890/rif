@@ -90,7 +90,7 @@ export default async function Page({
         </time>
       </div>
 
-      <div className="relative mt-8 aspect-16/9 overflow-hidden rounded-lg bg-ink-100">
+      <div className="relative mt-8 aspect-16/9 overflow-hidden rounded-[16px] bg-ink-100">
         <Image
           src={article.image}
           alt={pick(article.title, locale)}
@@ -108,7 +108,7 @@ export default async function Page({
           {article.tags.map((tag) => (
             <li
               key={tag}
-              className="rounded border border-ink-200 px-3 py-1.5 text-[13px] text-ink-600"
+              className="rounded border border-ink-200 px-3 py-1.5 text-[13px] text-ink-700"
             >
               {tag}
             </li>

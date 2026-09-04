@@ -59,7 +59,7 @@ export default async function Page({
     >
       <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-14">
         <div>
-          <div className="relative aspect-4/3 overflow-hidden rounded-lg bg-ink-100">
+          <div className="relative aspect-4/3 overflow-hidden rounded-[16px] bg-ink-100">
             <Image
               src={product.image}
               alt={pick(product.name, locale)}
@@ -70,7 +70,7 @@ export default async function Page({
             />
           </div>
 
-          <ul className="mt-7 space-y-3 rounded-lg border border-brand-200 bg-brand-50 p-6">
+          <ul className="mt-7 space-y-3 rounded-[16px] border border-brand-200 bg-brand-50 p-6">
             {pickList(product.highlights, locale).map((item) => (
               <li
                 key={item}

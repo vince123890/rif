@@ -1,12 +1,19 @@
 import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
+import { ArrowRight } from "lucide-react";
 
 import type { Article } from "@/lib/content";
 import { pick } from "@/lib/content";
 import { Link } from "@/i18n/routing";
-import { dateParts } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 
-/** News card with the date badge overlaid on the thumbnail (FR-NW-01). */
+/**
+ * News card.
+ *
+ * The fig pairs a 16px-radius image card with a category chip, a 20px bold
+ * headline, a 14px excerpt and a "Read more" link — date shown as plain text
+ * rather than a badge.
+ */
 export async function ArticleCard({
   article,
   layout = "vertical",
@@ -20,14 +27,13 @@ export async function ArticleCard({
     getTranslations("nav"),
   ]);
 
-  const { day, month, year } = dateParts(article.publishedAt, locale);
   const href = `/news/${article.slug}`;
   const categoryLabel = tNav(
     article.category === "education" ? "news-education" : "news-csr",
   );
 
   const thumb = (
-    <div className="relative aspect-4/3 overflow-hidden rounded-md bg-ink-100">
+    <div className="relative aspect-16/10 overflow-hidden rounded-[16px] bg-ink-100">
       <Image
         src={article.image}
         alt={pick(article.title, locale)}
@@ -35,36 +41,42 @@ export async function ArticleCard({
         sizes="(min-width: 1024px) 33vw, 100vw"
         className="object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute bottom-0 left-0 bg-brand-600/95 px-3 py-2 text-center text-white">
-        <span className="block text-[20px] font-bold leading-none">{day}</span>
-        <span className="block text-[11px] uppercase leading-tight">
-          {month} {String(year).slice(-2)}
-        </span>
-      </div>
+      <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[12px] font-bold text-brand-600 backdrop-blur">
+        {categoryLabel}
+      </span>
     </div>
   );
 
   if (layout === "horizontal") {
     return (
-      <article className="group grid gap-6 sm:grid-cols-[280px_1fr]">
+      <article className="group grid gap-6 sm:grid-cols-[300px_1fr]">
         <Link href={href} tabIndex={-1} aria-hidden>
           {thumb}
         </Link>
         <div>
-          <p className="text-[14px] font-medium text-brand-400">{categoryLabel}</p>
-          <h3 className="mt-1.5 text-[22px] font-normal leading-snug text-ink-900 md:text-[26px]">
+          <time
+            dateTime={article.publishedAt}
+            className="text-[13px] text-ink-500"
+          >
+            {formatDate(article.publishedAt, locale)}
+          </time>
+          <h3 className="mt-2 text-[22px] font-bold leading-snug text-ink-900 md:text-[24px]">
             <Link href={href} className="transition-colors hover:text-brand-600">
               {pick(article.title, locale)}
             </Link>
           </h3>
-          <p className="mt-3 line-clamp-3 text-[15px] leading-relaxed text-ink-600">
+          <p className="mt-3 line-clamp-3 text-[15px] leading-relaxed text-ink-500">
             {pick(article.excerpt, locale)}
           </p>
           <Link
             href={href}
-            className="mt-4 inline-block text-[14px] font-medium text-ink-700 underline underline-offset-4 transition-colors hover:text-brand-600"
+            className="mt-5 inline-flex items-center gap-2 text-[14px] font-bold text-accent-400 transition-colors hover:text-accent-500"
           >
             {t("readingMore")}
+            <ArrowRight
+              className="h-4 w-4 transition-transform group-hover:translate-x-1"
+              aria-hidden
+            />
           </Link>
         </div>
       </article>
@@ -72,19 +84,36 @@ export async function ArticleCard({
   }
 
   return (
-    <article className="group">
+    <article className="group flex flex-col overflow-hidden rounded-[16px] bg-white transition-transform duration-300 hover:-translate-y-1">
       <Link href={href} tabIndex={-1} aria-hidden>
         {thumb}
       </Link>
-      <p className="mt-4 text-[13px] font-medium text-brand-400">{categoryLabel}</p>
-      <h3 className="mt-1.5 text-[19px] font-normal leading-snug text-ink-900">
-        <Link href={href} className="transition-colors hover:text-brand-600">
-          {pick(article.title, locale)}
+      <div className="flex flex-1 flex-col p-6">
+        <time
+          dateTime={article.publishedAt}
+          className="text-[13px] text-ink-500"
+        >
+          {formatDate(article.publishedAt, locale)}
+        </time>
+        <h3 className="mt-2 text-[20px] font-bold leading-snug text-ink-900">
+          <Link href={href} className="transition-colors hover:text-brand-600">
+            {pick(article.title, locale)}
+          </Link>
+        </h3>
+        <p className="mt-2.5 line-clamp-3 text-[14px] leading-relaxed text-ink-500">
+          {pick(article.excerpt, locale)}
+        </p>
+        <Link
+          href={href}
+          className="mt-auto inline-flex items-center gap-2 pt-5 text-[14px] font-bold text-accent-400 transition-colors hover:text-accent-500"
+        >
+          {t("readingMore")}
+          <ArrowRight
+            className="h-4 w-4 transition-transform group-hover:translate-x-1"
+            aria-hidden
+          />
         </Link>
-      </h3>
-      <p className="mt-2.5 line-clamp-3 text-[14px] leading-relaxed text-ink-500">
-        {pick(article.excerpt, locale)}
-      </p>
+      </div>
     </article>
   );
 }
