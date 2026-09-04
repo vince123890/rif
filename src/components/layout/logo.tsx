@@ -2,9 +2,11 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * Official Resona mark (docs/rif logo.png) paired with the company wordmark.
- * The mark is the green "R" roundel; on dark surfaces it sits on a white
- * disc so the green keeps its contrast.
+ * Official lockup, matching the existing RIF site: the green Resona roundel
+ * with the orange "RESONA" wordmark beneath it, followed by the company name.
+ *
+ * The mark is slightly taller than it is wide because the RESONA wordmark
+ * sits under the roundel — keep the aspect ratio intact when resizing.
  */
 export function Logo({
   className,
@@ -14,40 +16,28 @@ export function Logo({
   tone?: "dark" | "light";
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-3", className)}>
+    <span className={cn("inline-flex items-center gap-2.5", className)}>
+      <Image
+        src="/brand/resona-mark.png"
+        alt=""
+        width={252}
+        height={320}
+        priority
+        className={cn(
+          "h-11 w-auto shrink-0",
+          // On the dark green header the orange wordmark still reads, but the
+          // green roundel needs a light disc behind it.
+          tone === "light" && "rounded-sm bg-white p-1",
+        )}
+      />
+
       <span
         className={cn(
-          "grid shrink-0 place-items-center rounded-full",
-          tone === "light" ? "h-10 w-10 bg-white p-1" : "h-10 w-10",
+          "text-[19px] font-black leading-tight tracking-tight",
+          tone === "dark" ? "text-ink-900" : "text-white",
         )}
       >
-        <Image
-          src="/brand/resona-mark.png"
-          alt=""
-          width={40}
-          height={40}
-          priority
-          className="h-full w-full object-contain"
-        />
-      </span>
-
-      <span className="leading-none">
-        <span
-          className={cn(
-            "block text-[16px] font-black tracking-tight",
-            tone === "dark" ? "text-ink-900" : "text-white",
-          )}
-        >
-          Resona Indonesia Finance
-        </span>
-        <span
-          className={cn(
-            "mt-0.5 block text-[10px] font-bold uppercase tracking-[0.18em]",
-            tone === "dark" ? "text-accent-400" : "text-accent-300",
-          )}
-        >
-          Resona Group
-        </span>
+        Resona Indonesia Finance
       </span>
     </span>
   );
