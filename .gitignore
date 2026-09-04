@@ -1,0 +1,49 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# next.js
+.next/
+out/
+build/
+next-env.d.ts
+
+# production
+dist/
+
+# misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files
+.env
+.env*.local
+!.env.example
+
+# typescript
+*.tsbuildinfo
+
+# vercel
+.vercel
+
+# editor
+.idea/
+.vscode/
+
+# Source material kept locally, not in the repo: the 219MB .fig design file,
+# the original analysis decks/spreadsheets, and the existing-site screenshots.
+# What was derived from them lives in the code and in docs/*.md —
+# design tokens in web/src/app/globals.css, requirements in the BRD,
+# and the CMS contract in the API document.
+*.fig
+docs/Analysis/
+docs/Requirement/
+docs/Figma dan Capture/

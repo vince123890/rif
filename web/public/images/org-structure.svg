@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="Lato, Arial, sans-serif">
+  <rect width="1400" height="900" fill="#ffffff"/>
+  <text x="700" y="52" text-anchor="middle" font-size="26" font-weight="700" fill="#101828">Struktur Organisasi</text>
+  <text x="700" y="80" text-anchor="middle" font-size="15" fill="#6a7282">PT Resona Indonesia Finance — placeholder, menunggu bagan resmi dari RIF</text>
+
+  <g stroke="#98a2b3" stroke-width="2" fill="none">
+    <path d="M700 150 V190"/>
+    <path d="M700 250 V290"/>
+    <path d="M700 350 V390"/>
+    <path d="M240 430 H1160"/>
+    <path d="M240 390 V470M470 390 V470M700 390 V470M930 390 V470M1160 390 V470"/>
+    <path d="M240 570 V620M470 570 V620M700 570 V620M930 570 V620M1160 570 V620"/>
+  </g>
+
+  <g>
+    <rect x="530" y="110" width="340" height="46" rx="6" fill="#006f4f"/>
+    <text x="700" y="139" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Rapat Umum Pemegang Saham</text>
+
+    <rect x="530" y="204" width="340" height="46" rx="6" fill="#0d8a66"/>
+    <text x="700" y="233" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Dewan Komisaris</text>
+
+    <rect x="530" y="304" width="340" height="46" rx="6" fill="#1aa67d"/>
+    <text x="700" y="333" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Direksi</text>
+  </g>
+
+  <g font-size="14" fill="#101828">
+    <rect x="130" y="470" width="220" height="100" rx="6" fill="#e2eae8" stroke="#abd7c9"/>
+    <text x="240" y="512" text-anchor="middle" font-weight="700">Divisi Marketing</text>
+    <text x="240" y="534" text-anchor="middle" font-size="13" fill="#6a7282">Business Development</text>
+
+    <rect x="360" y="470" width="220" height="100" rx="6" fill="#e2eae8" stroke="#abd7c9"/>
+    <text x="470" y="512" text-anchor="middle" font-weight="700">Divisi Kredit</text>
+    <text x="470" y="534" text-anchor="middle" font-size="13" fill="#6a7282">Credit &amp; Risk Analysis</text>
+
+    <rect x="590" y="470" width="220" height="100" rx="6" fill="#e2eae8" stroke="#abd7c9"/>
+    <text x="700" y="512" text-anchor="middle" font-weight="700">Divisi Operasional</text>
+    <text x="700" y="534" text-anchor="middle" font-size="13" fill="#6a7282">Operation &amp; Settlement</text>
+
+    <rect x="820" y="470" width="220" height="100" rx="6" fill="#e2eae8" stroke="#abd7c9"/>
+    <text x="930" y="512" text-anchor="middle" font-weight="700">Divisi Keuangan</text>
+    <text x="930" y="534" text-anchor="middle" font-size="13" fill="#6a7282">Finance &amp; Accounting</text>
+
+    <rect x="1050" y="470" width="220" height="100" rx="6" fill="#e2eae8" stroke="#abd7c9"/>
+    <text x="1160" y="512" text-anchor="middle" font-weight="700">Divisi Kepatuhan</text>
+    <text x="1160" y="534" text-anchor="middle" font-size="13" fill="#6a7282">Compliance &amp; Legal</text>
+  </g>
+
+  <g font-size="13" fill="#364153">
+    <rect x="140" y="620" width="200" height="72" rx="6" fill="#f7f7f7" stroke="#d0d4db"/>
+    <text x="240" y="652" text-anchor="middle">Account Officer</text>
+    <text x="240" y="672" text-anchor="middle" fill="#6a7282">Relationship Mgmt.</text>
+
+    <rect x="370" y="620" width="200" height="72" rx="6" fill="#f7f7f7" stroke="#d0d4db"/>
+    <text x="470" y="652" text-anchor="middle">Credit Analyst</text>
+    <text x="470" y="672" text-anchor="middle" fill="#6a7282">Risk Assessment</text>
+
+    <rect x="600" y="620" width="200" height="72" rx="6" fill="#f7f7f7" stroke="#d0d4db"/>
+    <text x="700" y="652" text-anchor="middle">Loan Administration</text>
+    <text x="700" y="672" text-anchor="middle" fill="#6a7282">Documentation</text>
+
+    <rect x="830" y="620" width="200" height="72" rx="6" fill="#f7f7f7" stroke="#d0d4db"/>
+    <text x="930" y="652" text-anchor="middle">Accounting</text>
+    <text x="930" y="672" text-anchor="middle" fill="#6a7282">Tax &amp; Reporting</text>
+
+    <rect x="1060" y="620" width="200" height="72" rx="6" fill="#f7f7f7" stroke="#d0d4db"/>
+    <text x="1160" y="652" text-anchor="middle">Internal Audit</text>
+    <text x="1160" y="672" text-anchor="middle" fill="#6a7282">APU-PPT</text>
+  </g>
+
+  <rect x="130" y="750" width="1140" height="62" rx="6" fill="#fef4ec" stroke="#fac79d"/>
+  <text x="700" y="777" text-anchor="middle" font-size="14" font-weight="700" fill="#93450b">Catatan</text>
+  <text x="700" y="798" text-anchor="middle" font-size="13" fill="#93450b">Bagan ini adalah placeholder. Bagan struktur organisasi resmi disediakan oleh RIF (BRD §4.3).</text>
+</svg>

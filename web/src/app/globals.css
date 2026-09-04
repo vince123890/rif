@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+/*
+ * RIF Design System
+ * Tokens extracted from `docs/Figma dan Capture/Resona Perdania.fig`
+ * (Playground Hijau — Bank Resona Perdania corporate redesign).
+ */
+
+@theme {
+  /* ---- Brand: deep corporate green + bright accent (from .fig) ---- */
+  --color-brand-50: #eef7f4;
+  --color-brand-100: #d5ebe4;
+  --color-brand-200: #abd7c9;
+  --color-brand-300: #74c2a9;
+  --color-brand-400: #1aa67d; /* fig: accent green */
+  --color-brand-500: #0d8a66;
+  --color-brand-600: #006f4f; /* fig: primary green */
+  --color-brand-700: #005a41;
+  --color-brand-800: #004734;
+  --color-brand-900: #003527;
+
+  /* ---- Accent: orange CTA (fig: #F58220) ---- */
+  --color-accent-50: #fef4ec;
+  --color-accent-100: #fde3ce;
+  --color-accent-200: #fac79d;
+  --color-accent-300: #f8a75f;
+  --color-accent-400: #f58220; /* fig */
+  --color-accent-500: #e06d0d;
+  --color-accent-600: #b95709;
+  --color-accent-700: #93450b;
+
+  /* ---- Neutrals (fig text + surfaces) ---- */
+  --color-ink-900: #101828; /* fig: headings */
+  --color-ink-800: #1e2939;
+  --color-ink-700: #364153;
+  --color-ink-600: #4a5565; /* fig: body */
+  --color-ink-500: #6a7282; /* fig: muted */
+  --color-ink-400: #98a2b3;
+  --color-ink-300: #d0d4db;
+  --color-ink-200: #e5e7eb;
+  --color-ink-100: #eeeff0;
+  --color-ink-50: #f7f7f7;
+
+  /* Tinted surface used behind sections in the fig */
+  --color-surface-mint: #e2eae8;
+  --color-surface-sand: #f3ebda;
+
+  /* ---- Typography: Lato (from .fig) ---- */
+  --font-sans:
+    var(--font-lato), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+
+  /* ---- Radii (fig layout/radius) ---- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+
+  /* ---- Motion ---- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-white text-ink-600 antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-ink-900;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible focus for keyboard users only */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-brand-600);
+    color: #fff;
+  }
+}
+
+@layer components {
+  /* Page shell — matches the 1440px fig frame with 1216px content container */
+  .container-rif {
+    @apply mx-auto w-full max-w-[1216px] px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Section eyebrow: "製品とサービス • PRODUCT & SERVICES" pattern from the fig */
+  .eyebrow {
+    @apply text-[13px] font-bold uppercase tracking-[0.14em] text-brand-600;
+  }
+
+  /* Rich text rendered from the CMS */
+  .prose-rif {
+    @apply text-[16px] leading-[1.85] text-ink-600;
+  }
+  .prose-rif > * + * {
+    @apply mt-5;
+  }
+  .prose-rif h2 {
+    @apply mt-10 text-[26px] font-bold leading-snug text-brand-600;
+  }
+  .prose-rif h3 {
+    @apply mt-8 text-[20px] font-bold leading-snug text-ink-900;
+  }
+  .prose-rif strong {
+    @apply font-bold text-ink-900;
+  }
+  .prose-rif a {
+    @apply font-semibold text-brand-600 underline underline-offset-4 hover:text-brand-700;
+  }
+  .prose-rif ul {
+    @apply list-disc space-y-2 pl-5 marker:text-brand-400;
+  }
+  .prose-rif ol {
+    @apply list-decimal space-y-2 pl-5 marker:font-semibold marker:text-brand-600;
+  }
+  .prose-rif table {
+    @apply w-full border-collapse text-[15px];
+  }
+  .prose-rif th {
+    @apply border border-ink-200 bg-brand-50 px-3 py-2 text-left font-bold text-ink-900;
+  }
+  .prose-rif td {
+    @apply border border-ink-200 px-3 py-2 align-top;
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.7s var(--ease-out-soft) both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

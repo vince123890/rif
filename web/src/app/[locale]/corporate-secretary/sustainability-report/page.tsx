@@ -1,0 +1,47 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
+import { getSustainabilityReports } from "@/lib/content";
+import { buildMetadata } from "@/lib/seo";
+import { ContentPage } from "@/components/layout/content-page";
+import { DocumentList } from "@/components/content/document-list";
+import { LeafIcon } from "@/components/ui/page-icons";
+
+const ROUTE = "/corporate-secretary/sustainability-report";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return buildMetadata({ locale, titleKey: "sustainability-report", path: ROUTE });
+}
+
+/** FR-CS-01 — reports grouped per year, with View PDF & Download. */
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const [tNav, documents] = await Promise.all([
+    getTranslations("nav"),
+    getSustainabilityReports(),
+  ]);
+
+  return (
+    <ContentPage
+      title={tNav("sustainability-report")}
+      route={ROUTE}
+      icon={<LeafIcon />}
+      wide
+      crumbs={[
+        { label: tNav("corporate-secretary"), href: ROUTE },
+      ]}
+    >
+      <DocumentList documents={documents} />
+    </ContentPage>
+  );
+}
