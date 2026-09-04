@@ -16,7 +16,6 @@ Frontend Next.js untuk revamp website korporat **PT Resona Indonesia Finance**.
 ## Menjalankan
 
 ```bash
-cd web
 npm install
 npm run dev      # http://localhost:3000 → redirect ke /id
 ```
@@ -28,7 +27,7 @@ npm run lint     # eslint
 
 ### Environment
 
-Salin `web/.env.example` ke `web/.env.local`:
+Salin `.env.example` ke `.env.local`:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://www.rif.co.id
@@ -53,7 +52,7 @@ STRAPI_API_TOKEN=
 
 ## Design System
 
-Token diekstrak langsung dari `Resona Perdania.fig` (canvas *Playground Hijau*) dan didefinisikan di [`web/src/app/globals.css`](web/src/app/globals.css):
+Token diekstrak langsung dari `Resona Perdania.fig` (canvas *Playground Hijau*) dan didefinisikan di [`src/app/globals.css`](src/app/globals.css):
 
 | Token | Nilai | Penggunaan |
 |---|---|---|
@@ -67,7 +66,7 @@ Token diekstrak langsung dari `Resona Perdania.fig` (canvas *Playground Hijau*) 
 ## Struktur
 
 ```
-web/src/
+src/
 ├── app/[locale]/          # Halaman (App Router, per locale)
 ├── components/
 │   ├── layout/            # Header, footer, page hero, next-page link
@@ -99,9 +98,9 @@ Global: navigasi 3 level responsif, footer, switcher bahasa, enable/disable menu
 
 ## Status Data
 
-Halaman saat ini memakai **konten placeholder** di `web/src/lib/content/data.ts` (mitigasi RS-01 pada BRD). Fakta perusahaan diambil dari website RIF existing; foto berasal dari file Figma referensi.
+Halaman saat ini memakai **konten placeholder** di `src/lib/content/data.ts` (mitigasi RS-01 pada BRD). Fakta perusahaan diambil dari website RIF existing; foto berasal dari file Figma referensi.
 
-Untuk go-live, ganti implementasi fungsi di `web/src/lib/content/index.ts` dengan pemanggilan Strapi sesuai dokumen API — **tanpa mengubah halaman atau komponen**.
+Untuk go-live, ganti implementasi fungsi di `src/lib/content/index.ts` dengan pemanggilan Strapi sesuai dokumen API — **tanpa mengubah halaman atau komponen**.
 
 ### Aset yang masih perlu disediakan RIF
 

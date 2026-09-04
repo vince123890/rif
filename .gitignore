@@ -41,7 +41,7 @@ yarn-error.log*
 # Source material kept locally, not in the repo: the 219MB .fig design file,
 # the original analysis decks/spreadsheets, and the existing-site screenshots.
 # What was derived from them lives in the code and in docs/*.md —
-# design tokens in web/src/app/globals.css, requirements in the BRD,
+# design tokens in src/app/globals.css, requirements in the BRD,
 # and the CMS contract in the API document.
 *.fig
 docs/Analysis/
