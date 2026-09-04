@@ -11,10 +11,16 @@ export const site = {
     line2: "Jl. Jend. Sudirman Kav. 45-46, Jakarta Selatan 12930",
     short: "Jl. Jend. Sudirman Kav. 45-46 - Jakarta Selatan 12930",
   },
-  /** FR-CT-02 — Google Maps embed. */
+  /**
+   * FR-CT-02 — Google Maps embed.
+   * Pinned to the office's exact coordinates rather than a text search, so
+   * the marker always lands on the RIF entry rather than a nearby match.
+   */
+  coordinates: { lat: -6.216808, lng: 106.8179903 },
   mapEmbedUrl:
-    "https://www.google.com/maps?q=Sampoerna+Strategic+Square+South+Tower+Jakarta&output=embed",
-  mapLink: "https://maps.google.com/?q=PT+Resona+Indonesia+Finance+Jakarta",
+    "https://www.google.com/maps?q=Resona+Indonesia+Finance,+PT.@-6.216808,106.8179903&ll=-6.216808,106.8179903&z=17&output=embed",
+  mapLink:
+    "https://www.google.com/maps/place/Resona+Indonesia+Finance,+PT./@-6.216808,106.8179903,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f6aadf66e215:0x4c6e0fb1645a58c4!8m2!3d-6.216808!4d106.8179903!16s%2Fg%2F1v4lzjkk",
   /** BRD §8.2 — external integrations. */
   external: {
     bankResonaPerdania: "https://www.perdania.co.id/",
