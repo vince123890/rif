@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { getAwards, pick } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { AwardIcon } from "@/components/ui/page-icons";
 
@@ -31,9 +32,14 @@ export default async function Page({
     getAwards(),
   ]);
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
     <ContentPage
-      title={tNav("award")}
+      titleAccent={splitTitle(tNav("award"), banner?.accentWords).accent}
+      title={splitTitle(tNav("award"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
       route={ROUTE}
       icon={<AwardIcon />}
       wide

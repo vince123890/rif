@@ -7,6 +7,7 @@ import { getArticle, getArticles, pick } from "@/lib/content";
 import { routing, Link } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/config/site";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
 import { NewsIcon } from "@/components/ui/page-icons";
@@ -69,9 +70,14 @@ export default async function Page({
     publisher: { "@type": "Organization", name: site.name },
   };
 
+  const banner = getBanner("/news", locale);
+
   return (
     <ContentPage
-      title={pick(article.title, locale)}
+      titleAccent={splitTitle(pick(article.title, locale), banner?.accentWords).accent}
+      title={splitTitle(pick(article.title, locale), banner?.accentWords).rest}
+      subtitle={pick(article.excerpt, locale)}
+      image={article.image}
       route="/news"
       icon={<NewsIcon />}
       crumbs={[{ label: tNav("news"), href: "/news" }]}

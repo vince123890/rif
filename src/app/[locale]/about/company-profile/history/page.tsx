@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { CompassIcon } from "@/components/ui/page-icons";
 import { milestones } from "@/lib/content/milestones";
@@ -28,9 +29,14 @@ export default async function Page({
   const tNav = await getTranslations("nav");
   const key = locale === "en" ? "en" : "id";
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
     <ContentPage
-      title={tNav("history")}
+      titleAccent={splitTitle(tNav("history"), banner?.accentWords).accent}
+      title={splitTitle(tNav("history"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
       route={ROUTE}
       icon={<CompassIcon />}
       wide

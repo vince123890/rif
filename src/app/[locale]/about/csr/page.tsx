@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { getCsrActivities, pick } from "@/lib/content";
 import { Link } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { LeafIcon } from "@/components/ui/page-icons";
 import { formatDate } from "@/lib/utils";
@@ -35,9 +36,14 @@ export default async function Page({
     getCsrActivities(),
   ]);
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
     <ContentPage
-      title={tNav("csr")}
+      titleAccent={splitTitle(tNav("csr"), banner?.accentWords).accent}
+      title={splitTitle(tNav("csr"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
       route={ROUTE}
       icon={<LeafIcon />}
       wide

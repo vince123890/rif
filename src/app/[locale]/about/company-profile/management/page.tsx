@@ -4,6 +4,7 @@ import { User } from "lucide-react";
 
 import { getManagement, pick } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { PeopleIcon } from "@/components/ui/page-icons";
 
@@ -43,9 +44,14 @@ export default async function Page({
     },
   ];
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
     <ContentPage
-      title={tNav("management")}
+      titleAccent={splitTitle(tNav("management"), banner?.accentWords).accent}
+      title={splitTitle(tNav("management"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
       route={ROUTE}
       icon={<PeopleIcon />}
       wide

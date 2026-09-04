@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { getArticleFacets, getArticles } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { ArticleCard } from "@/components/content/article-card";
 import { NewsSidebar } from "@/components/content/news-sidebar";
@@ -41,8 +42,18 @@ export default async function Page({
     getArticleFacets(),
   ]);
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
-    <ContentPage title={tNav("news")} route={ROUTE} icon={<NewsIcon />} wide>
+    <ContentPage
+      titleAccent={splitTitle(tNav("news"), banner?.accentWords).accent}
+      title={splitTitle(tNav("news"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
+      route={ROUTE}
+      icon={<NewsIcon />}
+      wide
+    >
       <div className="grid gap-12 lg:grid-cols-[1fr_320px] lg:gap-16">
         <div>
           {articles.length ? (

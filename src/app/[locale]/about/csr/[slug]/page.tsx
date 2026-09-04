@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { getCsrActivities, getCsrActivity, pick } from "@/lib/content";
 import { routing, Link } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
 import { LeafIcon } from "@/components/ui/page-icons";
@@ -50,9 +51,14 @@ export default async function Page({
 
   const tNav = await getTranslations("nav");
 
+  const banner = getBanner("/about/csr", locale);
+
   return (
     <ContentPage
-      title={pick(item.title, locale)}
+      titleAccent={splitTitle(pick(item.title, locale), banner?.accentWords).accent}
+      title={splitTitle(pick(item.title, locale), banner?.accentWords).rest}
+      subtitle={pick(item.summary, locale)}
+      image={item.image}
       route="/about/csr"
       icon={<LeafIcon />}
       crumbs={[

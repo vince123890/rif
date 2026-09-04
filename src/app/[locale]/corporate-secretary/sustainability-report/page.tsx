@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { getSustainabilityReports } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { DocumentList } from "@/components/content/document-list";
 import { LeafIcon } from "@/components/ui/page-icons";
@@ -31,9 +32,14 @@ export default async function Page({
     getSustainabilityReports(),
   ]);
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
     <ContentPage
-      title={tNav("sustainability-report")}
+      titleAccent={splitTitle(tNav("sustainability-report"), banner?.accentWords).accent}
+      title={splitTitle(tNav("sustainability-report"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
       route={ROUTE}
       icon={<LeafIcon />}
       wide

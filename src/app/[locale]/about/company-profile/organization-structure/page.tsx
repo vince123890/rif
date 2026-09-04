@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { ZoomableImage } from "@/components/content/zoomable-image";
 import { PeopleIcon } from "@/components/ui/page-icons";
@@ -27,9 +28,14 @@ export default async function Page({
 
   const tNav = await getTranslations("nav");
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
     <ContentPage
-      title={tNav("organization-structure")}
+      titleAccent={splitTitle(tNav("organization-structure"), banner?.accentWords).accent}
+      title={splitTitle(tNav("organization-structure"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
       route={ROUTE}
       icon={<PeopleIcon />}
       wide

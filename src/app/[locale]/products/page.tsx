@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { getProducts } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { ProductTabs } from "@/components/content/product-tabs";
 import { HandshakeIcon } from "@/components/ui/page-icons";
@@ -30,9 +31,14 @@ export default async function Page({
     getProducts(),
   ]);
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
     <ContentPage
-      title={tNav("products")}
+      titleAccent={splitTitle(tNav("products"), banner?.accentWords).accent}
+      title={splitTitle(tNav("products"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
       route={ROUTE}
       icon={<HandshakeIcon />}
       wide

@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { getSbdpDocuments } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { DocumentList } from "@/components/content/document-list";
 import { ChartIcon } from "@/components/ui/page-icons";
@@ -31,9 +32,14 @@ export default async function Page({
     getSbdpDocuments(),
   ]);
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
     <ContentPage
-      title={tNav("sbdp")}
+      titleAccent={splitTitle(tNav("sbdp"), banner?.accentWords).accent}
+      title={splitTitle(tNav("sbdp"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
       route={ROUTE}
       icon={<ChartIcon />}
       wide

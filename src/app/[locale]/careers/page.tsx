@@ -4,6 +4,7 @@ import { Briefcase, MapPin } from "lucide-react";
 import { getVacancies, pick, pickList } from "@/lib/content";
 import { site } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { ButtonLink } from "@/components/ui/button";
 import { RichText } from "@/components/ui/rich-text";
@@ -36,9 +37,14 @@ export default async function Page({
     getVacancies(),
   ]);
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
     <ContentPage
-      title={tNav("careers")}
+      titleAccent={splitTitle(tNav("careers"), banner?.accentWords).accent}
+      title={splitTitle(tNav("careers"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
       route={ROUTE}
       icon={<BriefcaseIcon />}
       wide

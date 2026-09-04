@@ -3,6 +3,7 @@ import { ExternalLink, MapPin, Phone } from "lucide-react";
 
 import { site } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { SupportIcon } from "@/components/ui/page-icons";
 
@@ -46,9 +47,14 @@ export default async function Page({
     },
   ];
 
+  const banner = getBanner(ROUTE, locale);
+
   return (
     <ContentPage
-      title={tNav("contact")}
+      titleAccent={splitTitle(tNav("contact"), banner?.accentWords).accent}
+      title={splitTitle(tNav("contact"), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image}
       route={ROUTE}
       icon={<SupportIcon />}
       wide

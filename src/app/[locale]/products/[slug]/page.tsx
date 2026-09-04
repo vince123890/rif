@@ -6,6 +6,7 @@ import { Check } from "lucide-react";
 import { getProduct, getProducts, pick, pickList } from "@/lib/content";
 import { routing } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
+import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
 import { HandshakeIcon } from "@/components/ui/page-icons";
@@ -49,9 +50,14 @@ export default async function Page({
 
   const tNav = await getTranslations("nav");
 
+  const banner = getBanner(`/products/${slug}`, locale);
+
   return (
     <ContentPage
-      title={pick(product.name, locale)}
+      titleAccent={splitTitle(pick(product.name, locale), banner?.accentWords).accent}
+      title={splitTitle(pick(product.name, locale), banner?.accentWords).rest}
+      subtitle={banner?.subtitle}
+      image={banner?.image ?? product.image}
       route={`/products/${slug}`}
       icon={<HandshakeIcon />}
       wide
