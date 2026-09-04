@@ -8,7 +8,6 @@ import { buildMetadata } from "@/lib/seo";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
-import { BankIcon } from "@/components/ui/page-icons";
 
 const ROUTE = "/about/bank-resona-perdania";
 
@@ -44,7 +43,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<BankIcon />}
       crumbs={[{ label: tNav("about"), href: "/about/management-message" }]}
     >
       <RichText html={pick(page.body, locale)} />

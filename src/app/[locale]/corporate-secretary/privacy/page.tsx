@@ -8,7 +8,6 @@ import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
 import { DocumentActions } from "@/components/content/document-actions";
-import { ShieldIcon } from "@/components/ui/page-icons";
 
 const PAGE_KEY = "privacy";
 const ROUTE = "/corporate-secretary/privacy";
@@ -49,7 +48,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<ShieldIcon />}
       crumbs={[
     { label: tNav("corporate-secretary"), href: "/corporate-secretary/sustainability-report" },
       ]}

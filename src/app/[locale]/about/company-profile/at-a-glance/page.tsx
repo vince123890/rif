@@ -8,7 +8,6 @@ import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
 import { DocumentActions } from "@/components/content/document-actions";
-import { BankIcon } from "@/components/ui/page-icons";
 
 const PAGE_KEY = "at-a-glance";
 const ROUTE = "/about/company-profile/at-a-glance";
@@ -49,7 +48,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<BankIcon />}
       crumbs={[
     { label: tNav("about"), href: "/about/management-message" },
     { label: tNav("company-profile"), href: "/about/company-profile/vision-mission" },

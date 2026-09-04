@@ -4,7 +4,6 @@ import { buildMetadata } from "@/lib/seo";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { ZoomableImage } from "@/components/content/zoomable-image";
-import { PeopleIcon } from "@/components/ui/page-icons";
 
 const ROUTE = "/about/company-profile/organization-structure";
 
@@ -37,7 +36,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<PeopleIcon />}
       wide
       crumbs={[
         { label: tNav("about"), href: "/about/management-message" },

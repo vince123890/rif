@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowRight, FileText, Leaf, Play } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 import {
   getArticles,
@@ -143,7 +143,6 @@ export default async function HomePage({
 
           <div className="mx-auto mt-14 grid max-w-4xl gap-6 md:grid-cols-2">
             <ReportCard
-              icon={<Leaf className="h-6 w-6" aria-hidden />}
               title={
                 locale === "id"
                   ? "Laporan Keberlanjutan"
@@ -154,7 +153,6 @@ export default async function HomePage({
               cta={tc("more")}
             />
             <ReportCard
-              icon={<FileText className="h-6 w-6" aria-hidden />}
               title={
                 locale === "id" ? "Laporan Keuangan" : "Financial Report"
               }
@@ -246,13 +244,11 @@ export default async function HomePage({
 
 /** Report card sitting on the dark green panel. */
 function ReportCard({
-  icon,
   title,
   years,
   href,
   cta,
 }: {
-  icon: React.ReactNode;
   title: string;
   years: number[];
   href: string;
@@ -260,10 +256,7 @@ function ReportCard({
 }) {
   return (
     <div className="flex flex-col rounded-[16px] bg-white/95 p-8 transition-transform duration-300 hover:-translate-y-1">
-      <span className="grid h-14 w-14 place-items-center rounded-[12px] bg-brand-50 text-brand-600">
-        {icon}
-      </span>
-      <h3 className="mt-6 text-[20px] font-bold text-ink-900">{title}</h3>
+      <h3 className="text-[20px] font-bold text-ink-900">{title}</h3>
 
       <ul className="mt-5 flex flex-wrap gap-2">
         {years.map((y) => (

@@ -11,7 +11,6 @@ export function ContentPage({
   titleAccent,
   subtitle,
   crumbs,
-  icon,
   image,
   route,
   children,
@@ -21,7 +20,6 @@ export function ContentPage({
   titleAccent?: string;
   subtitle?: string;
   crumbs?: Crumb[];
-  icon?: ReactNode;
   image?: string;
   route: string;
   children: ReactNode;
@@ -35,7 +33,6 @@ export function ContentPage({
         titleAccent={titleAccent}
         subtitle={subtitle}
         crumbs={crumbs}
-        icon={icon}
         image={image}
       />
       <div className="bg-canvas py-16 md:py-20">

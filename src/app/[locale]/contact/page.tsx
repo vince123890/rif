@@ -5,7 +5,6 @@ import { site } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
-import { SupportIcon } from "@/components/ui/page-icons";
 
 const ROUTE = "/contact";
 
@@ -56,7 +55,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<SupportIcon />}
       wide
     >
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">

@@ -8,7 +8,6 @@ import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { ButtonLink } from "@/components/ui/button";
 import { RichText } from "@/components/ui/rich-text";
-import { BriefcaseIcon } from "@/components/ui/page-icons";
 import { formatDate } from "@/lib/utils";
 
 const ROUTE = "/careers";
@@ -46,7 +45,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<BriefcaseIcon />}
       wide
     >
       <h2 className="text-[30px] font-normal text-brand-600 md:text-[36px]">

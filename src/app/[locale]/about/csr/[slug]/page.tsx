@@ -9,7 +9,6 @@ import { buildMetadata } from "@/lib/seo";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
-import { LeafIcon } from "@/components/ui/page-icons";
 import { formatDate } from "@/lib/utils";
 
 export async function generateStaticParams() {
@@ -60,7 +59,6 @@ export default async function Page({
       subtitle={pick(item.summary, locale)}
       image={item.image}
       route="/about/csr"
-      icon={<LeafIcon />}
       crumbs={[
         { label: tNav("about"), href: "/about/management-message" },
         { label: tNav("csr"), href: "/about/csr" },

@@ -9,7 +9,6 @@ import { buildMetadata } from "@/lib/seo";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
-import { HandshakeIcon } from "@/components/ui/page-icons";
 
 export async function generateStaticParams() {
   const products = await getProducts();
@@ -59,7 +58,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image ?? product.image}
       route={`/products/${slug}`}
-      icon={<HandshakeIcon />}
       wide
       crumbs={[{ label: tNav("products"), href: "/products" }]}
     >

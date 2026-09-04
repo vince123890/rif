@@ -17,8 +17,14 @@ export const site = {
    * the marker always lands on the RIF entry rather than a nearby match.
    */
   coordinates: { lat: -6.216808, lng: 106.8179903 },
+  /*
+   * `ll` centres the map on the office while `q` names the place, so Google
+   * resolves the RIF listing itself and renders its labelled pin and info
+   * card. Passing the coordinates inside `q` instead makes it fall back to a
+   * plain dropped pin with no label.
+   */
   mapEmbedUrl:
-    "https://www.google.com/maps?q=Resona+Indonesia+Finance,+PT.@-6.216808,106.8179903&ll=-6.216808,106.8179903&z=17&output=embed",
+    "https://www.google.com/maps?ll=-6.216808,106.8179903&q=Resona+Indonesia+Finance,+PT.&z=17&output=embed",
   mapLink:
     "https://www.google.com/maps/place/Resona+Indonesia+Finance,+PT./@-6.216808,106.8179903,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f6aadf66e215:0x4c6e0fb1645a58c4!8m2!3d-6.216808!4d106.8179903!16s%2Fg%2F1v4lzjkk",
   /** BRD §8.2 — external integrations. */

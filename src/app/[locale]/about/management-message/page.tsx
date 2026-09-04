@@ -8,7 +8,6 @@ import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
 import { DocumentActions } from "@/components/content/document-actions";
-import { PeopleIcon } from "@/components/ui/page-icons";
 
 const PAGE_KEY = "management-message";
 const ROUTE = "/about/management-message";
@@ -49,7 +48,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<PeopleIcon />}
       crumbs={[
     { label: tNav("about"), href: "/about/management-message" },
       ]}

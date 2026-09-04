@@ -5,7 +5,6 @@ import { buildMetadata } from "@/lib/seo";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { ProductTabs } from "@/components/content/product-tabs";
-import { HandshakeIcon } from "@/components/ui/page-icons";
 
 const ROUTE = "/products";
 
@@ -40,7 +39,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<HandshakeIcon />}
       wide
     >
       <p className="mb-8 text-[16px] text-ink-700">

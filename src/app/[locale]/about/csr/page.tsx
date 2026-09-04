@@ -7,7 +7,6 @@ import { Link } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
-import { LeafIcon } from "@/components/ui/page-icons";
 import { formatDate } from "@/lib/utils";
 
 const ROUTE = "/about/csr";
@@ -45,7 +44,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<LeafIcon />}
       wide
       crumbs={[{ label: tNav("about"), href: "/about/management-message" }]}
     >

@@ -10,7 +10,6 @@ import { site } from "@/config/site";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
-import { NewsIcon } from "@/components/ui/page-icons";
 import { formatDate } from "@/lib/utils";
 
 export async function generateStaticParams() {
@@ -79,7 +78,6 @@ export default async function Page({
       subtitle={pick(article.excerpt, locale)}
       image={article.image}
       route="/news"
-      icon={<NewsIcon />}
       crumbs={[{ label: tNav("news"), href: "/news" }]}
     >
       <script

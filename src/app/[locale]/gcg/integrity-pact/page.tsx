@@ -8,7 +8,6 @@ import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { RichText } from "@/components/ui/rich-text";
 import { DocumentActions } from "@/components/content/document-actions";
-import { DocumentIcon } from "@/components/ui/page-icons";
 
 const PAGE_KEY = "integrity-pact";
 const ROUTE = "/gcg/integrity-pact";
@@ -49,7 +48,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<DocumentIcon />}
       crumbs={[
     { label: tNav("gcg"), href: "/gcg/anti-fraud" },
       ]}

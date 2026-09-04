@@ -6,7 +6,6 @@ import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { ArticleCard } from "@/components/content/article-card";
 import { NewsSidebar } from "@/components/content/news-sidebar";
-import { NewsIcon } from "@/components/ui/page-icons";
 
 const ROUTE = "/news";
 
@@ -51,7 +50,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<NewsIcon />}
       wide
     >
       <div className="grid gap-12 lg:grid-cols-[1fr_320px] lg:gap-16">

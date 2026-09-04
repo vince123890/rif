@@ -5,7 +5,6 @@ import { buildMetadata } from "@/lib/seo";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
 import { DocumentList } from "@/components/content/document-list";
-import { ChartIcon } from "@/components/ui/page-icons";
 
 const ROUTE = "/corporate-secretary/financial-report";
 
@@ -41,7 +40,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<ChartIcon />}
       wide
       crumbs={[
         {

@@ -3,7 +3,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildMetadata } from "@/lib/seo";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
-import { CompassIcon } from "@/components/ui/page-icons";
 import { milestones } from "@/lib/content/milestones";
 
 const ROUTE = "/about/company-profile/history";
@@ -38,7 +37,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<CompassIcon />}
       wide
       crumbs={[
         { label: tNav("about"), href: "/about/management-message" },

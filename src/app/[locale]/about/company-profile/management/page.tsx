@@ -6,7 +6,6 @@ import { getManagement, pick } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { getBanner, splitTitle } from "@/config/page-banners";
 import { ContentPage } from "@/components/layout/content-page";
-import { PeopleIcon } from "@/components/ui/page-icons";
 
 const ROUTE = "/about/company-profile/management";
 
@@ -53,7 +52,6 @@ export default async function Page({
       subtitle={banner?.subtitle}
       image={banner?.image}
       route={ROUTE}
-      icon={<PeopleIcon />}
       wide
       crumbs={[
         { label: tNav("about"), href: "/about/management-message" },

@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { ChevronRight } from "lucide-react";
@@ -24,7 +23,6 @@ export async function PageHero({
   subtitle,
   crumbs = [],
   image = "/images/meeting-boardroom.jpg",
-  icon,
 }: {
   title: string;
   /** Leading fragment rendered in orange, as in the fig. */
@@ -32,7 +30,6 @@ export async function PageHero({
   subtitle?: string;
   crumbs?: Crumb[];
   image?: string;
-  icon?: ReactNode;
 }) {
   const t = await getTranslations("common");
   const tNav = await getTranslations("nav");
@@ -64,15 +61,6 @@ export async function PageHero({
           className="pointer-events-none absolute -right-24 -top-28 h-[365px] w-[365px] rounded-full bg-white/[0.06]"
         />
 
-        {/* Watermark glyph */}
-        {icon ? (
-          <div
-            aria-hidden
-            className="pointer-events-none absolute right-8 top-1/2 hidden -translate-y-1/2 text-white/10 lg:block [&>svg]:h-[220px] [&>svg]:w-[220px]"
-          >
-            {icon}
-          </div>
-        ) : null}
 
         {/* Corner brackets — fig: 41x41, white at 30% */}
         <Bracket className="left-5 top-5" corner="tl" />
